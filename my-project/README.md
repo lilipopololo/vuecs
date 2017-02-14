@@ -1,4 +1,4 @@
-# my-ones
+# my-project
 
 > A Vue.js project
 
