@@ -2,30 +2,43 @@
 <template>
   <div class="hello">
       <img src='../assets/logo.png'>
-      <homes v-show='homes' :homest='homes'></homes>
+      <homes v-show='curr' v-on:child-say='getLoginValue'></homes>
+      <div class='muhouneirong' v-if='land'>
+          <p class='welcomes'>{{loginName}}:你好，欢迎使用vue进行开发<p>
+          <p><router-link to="/myapp" style='color:red;font-size:20px;line-height:40px;margin-button:25px'>多也页面处理与路由处理</router-link></p>
+          <p><router-link to="/Inadd" style='color:red;font-size:20px;line-height:40px;margin-button:25px'>数据请求，赠删页，vuex页</router-link></p>
+      </div>
+
   </div>
 </template>
 
 
 <script>
 import '../styles/only.css'
+
 const Home = {
-   data(){
-      return{
-        valueso:''
-      }
-   },
-   props:['homest','ctpaso'],
+ 
+   props:['currt'],
    template: "<div class='vulenames'>"
             +"<p>欢迎学习vue初级入门教程</p>"
-            +"<input class='inpt' type='text' ref='povalue'>{{valueso}}</br>"
+            +"<input class='inpt' type='text' ref='povalue'></br>"
             +"<input type='text'>"
-            +"<div><button>取消</button><button @click='mytext'>确认</button></div>"
+            +"<div><button>取消</button><button @click='mythis'>确认</button></div>"
             +"</div>",
 
     methods:{
       mytext(){
-        this.valueso=this.$refs.povalue.value;
+        let nodevalue = this.$refs.povalue.value;
+        if(nodevalue==''||nodevalue==null){
+            return
+        }else{
+            this.valueso = nodevalue;
+            this.$emit('currt')
+        }
+      },
+      mythis(){
+          const nodes = this.$refs.povalue.value;
+          this.$emit('child-say',nodes);
       }
     }
 }
@@ -36,17 +49,23 @@ export default {
   name: 'hello',
   data () {
     return {
-      homes:true
+      curr:true,
+      loginName:'2',
+      land:false
     }
   },
+
 
   components:{
       homes : Home
   },
 
   methods:{
-      mishow: function() {
-        homes:false
+    getLoginValue(values){
+      console.log(values)
+      this.loginName = values;
+      this.curr=false;
+      this.land=true;
     }
   }
 
@@ -56,9 +75,7 @@ export default {
 
 
 <style>
-h1, h2 {
-  font-weight: normal;
-}
+
 .hello{
   text-align:center;
   background:#2b332c;
@@ -66,15 +83,18 @@ h1, h2 {
   width:100%;
   height:100%;
 }
+
 .hello img{
   margin:20px auto 0 auto;
 
 }
+
 .vulenames{
   text-align:center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .vulenames p{
   font-size:30px;
   color:#fff;
@@ -86,6 +106,7 @@ h1, h2 {
   font-weight: bold;
   margin:25px 0 25px 0;
 }
+
 .vulenames input{
   width:200px;
   height:26px;
@@ -95,6 +116,7 @@ h1, h2 {
   outline:none;
   padding-left:5px;
 }
+
 .vulenames button{
   background:red;
   width:100px;
@@ -104,6 +126,12 @@ h1, h2 {
   margin-top:10px;
   border-radius:2px;
   color:#fff;
-  outline:none
+  outline:none;
 }
+.welcomes{
+  color:#fff;
+  font-size: 20px;
+  line-height: 50px;
+}
+
 </style>
