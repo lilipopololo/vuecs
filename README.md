@@ -22,4 +22,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 版本非非常入门，起码前提你要读完全部的官方API这样看起来会容易的很多，针对入门的人，没有进行多少函数封装。让新人能快速学习。大部分的方法都用了一下。谢写
 
 如有任何问题可以联系我QQ294662037；
-联系QQ群 ： 20481837 gancheng gan
+联系QQ群 ： 20481837
+
+
+
+react学习链接地点 http://react-china.org/t/react/10621
