@@ -18,7 +18,7 @@ import '../styles/only.css'
 
 const Home = {
  
-   props:['currt'],
+   props:['currts'], //父传给子的
    template: "<div class='vulenames'>"
             +"<p>欢迎学习vue初级入门教程</p>"
             +"<input class='inpt' type='text' ref='povalue'></br>"
@@ -33,7 +33,7 @@ const Home = {
             return
         }else{
             this.valueso = nodevalue;
-            this.$emit('currt')
+            this.$emit('currt') //子给父
         }
       },
       mythis(){
