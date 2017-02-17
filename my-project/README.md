@@ -1,30 +1,16 @@
-# my-project
+# 项目用了vue库进行开发，目前相对react上手比较容易些
 
-> A Vue.js project
+> A 采用vue + vue-resource + vuex + vue-router等进行处理
 
+> B vuex不建议用在小型项目或者小重型，vue的vuex用起来始终怪怪的。很多借鉴了react的写法
 ## Build Setup
 
-``` bash
-# install dependencies
+# 启动项目
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+npm run dev 
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
+学会进步vue也就入门了。
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
