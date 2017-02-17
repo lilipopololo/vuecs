@@ -1,8 +1,10 @@
 <template>
 	<div>
 		<button class='datas' @click='myData'>数据请求</button>
-		<ul>
-			<li>{{myadd}}</li>
+		<ul class='mylitodos' v-for='todos in count'>
+			<li>
+				{{todos.title}}
+			</li>
 		</ul>
 	</div>
 </template>
@@ -10,18 +12,19 @@
 <script>
 import Vue from 'vue'
 import '../styles/only.css';
-import resource from 'vue-resource';
-import store from '../vuexText/startValus'
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
 
 
-Vue.use(resource)
 
 	export default {
+
 		data(){
 			return{
 				myadd:''
 			}
 		},
+
 		methods:{
 			myData(){
 				this.$http({
@@ -30,24 +33,20 @@ Vue.use(resource)
 				})
 				.then(function(datas){
 					const mytodos = datas.data.data
-					for(var i in mytodos){
-						this.myadd = mytodos[i].title;
-					}
-					 console.log(this.$store.state.count)
+					 console.log(mytodos)
+					 this.$store.dispatch('incrementAsync',mytodos) //异步处理
 				})
+
 			}
 		},
-		store: store,
-		vuex: {
-		    getters: {
-		      // 该 getter 函数将会把仓库的 `store.state.count` 绑定为组件的 `this.count`
-		      counts: function (state) {
-		        return state.count
-		      }
-		    }
-		  }
+
+		computed:mapState ({ //vuex数据抓取
+		    	count: state => state.count,
+		    })
+		  
 	}
 
+	
 </script>
 <style>
 	.datas{
@@ -58,5 +57,12 @@ Vue.use(resource)
 		line-height: 50px;
 		border: none;
 		color:#fff;
+	}
+	.mylitodos li {
+		text-align: center;
+		width: 100%;
+		margin-top: 10px;
+		background: #ccc;
+		color: red;
 	}
 </style>

@@ -11,6 +11,7 @@
 		<dhtml class='dbnode' v-show='3==indexclrr'></dhtml>
 		<ehtml class='dbnode' v-show='4==indexclrr'></ehtml>
 		<div class='mycenter'><router-link to="/myapp/prosto">嵌套路由处理</router-link></div>
+		<div class='mycenter'><router-link to="/">反回主页</router-link></div>
 		<router-view></router-view>
 	</div>
 
