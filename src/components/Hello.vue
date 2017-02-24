@@ -2,7 +2,7 @@
 <template>
   <div class="hello">
       <img src='../assets/logo.png'>
-      <homes v-show='curr' v-on:child-say='getLoginValue'></homes>
+      <homes v-show='curr' v-on:child-say='getLoginValue' v-bind:currts='currtst'></homes>
       <div class='muhouneirong' v-if='land'>
           <p class='welcomes'>{{loginName}}:你好，欢迎使用vue进行开发<p>
           <p><router-link to="/myapp" style='color:red;font-size:20px;line-height:40px;margin-button:25px'>多也页面处理与路由处理</router-link></p>
@@ -17,28 +17,23 @@
 import '../styles/only.css'
 
 const Home = {
- 
    props:['currts'], //父传给子的
    template: "<div class='vulenames'>"
-            +"<p>欢迎学习vue初级入门教程</p>"
+            +"<p>欢迎学习vue初级入门教程{{currts}}</p>"
             +"<input class='inpt' type='text' ref='povalue'></br>"
             +"<input type='text'>"
-            +"<div><button>取消</button><button @click='mythis'>确认</button></div>"
+            +"<div><button>取消</button><button @click='mytext'>确认</button></div>"
             +"</div>",
 
     methods:{
       mytext(){
         let nodevalue = this.$refs.povalue.value;
-        if(nodevalue==''||nodevalue==null){
+        if(nodevalue==''||nodevalue== null){
             return
         }else{
-            this.valueso = nodevalue;
-            this.$emit('currt') //子给父
+             this.$emit('child-say',nodevalue);//子给父
         }
-      },
-      mythis(){
-          const nodes = this.$refs.povalue.value;
-          this.$emit('child-say',nodes);
+
       }
     }
 }
@@ -50,11 +45,11 @@ export default {
   data () {
     return {
       curr:true,
-      loginName:'2',
-      land:false
+      loginName:'',
+      land:false,
+      currtst:'开发'
     }
   },
-
 
   components:{
       homes : Home
@@ -62,7 +57,6 @@ export default {
 
   methods:{
     getLoginValue(values){
-      console.log(values)
       this.loginName = values;
       this.curr=false;
       this.land=true;

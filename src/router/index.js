@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from 'components/Hello'
 import Myapp from 'components/multiModule'
-import UserProfile from 'components/multiModule' //潜逃路由
+import UserProfile from 'components/multiModule' //嵌套路由
 import UserMrofile from 'components/indexmo'
 import Inadd from 'components/Deletepage'
+
 Vue.use(Router)
 
 export default new Router({

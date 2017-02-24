@@ -15,39 +15,39 @@ import '../styles/only.css';
 import { mapState } from 'vuex'
 import { mapActions } from 'vuex'
 
+export default {
 
+	data(){
+		return{
+			myadd:''
+		}
+	},
+	methods:{
+		myData(){
+			this.$http({
+				method:'GET',
+				url:'/api/v1/topics'
+			})
+			.then(function(datas){
+				const mytodos = datas.data.data;
+				this.$store.dispatch('incrementAsync',mytodos) //异步处理
+			})
 
-	export default {
-
-		data(){
-			return{
-				myadd:''
-			}
-		},
-
-		methods:{
-			myData(){
-				this.$http({
-					method:'GET',
-					url:'/api/v1/topics'
-				})
-				.then(function(datas){
-					const mytodos = datas.data.data
-					 console.log(mytodos)
-					 this.$store.dispatch('incrementAsync',mytodos) //异步处理
-				})
-
-			}
-		},
-
-		computed:mapState ({ //vuex数据抓取
-		    	count: state => state.count,
-		    })
-		  
+		}
+	},
+	computed:{
+		count(){   //vuex数据抓取   
+			return this.$store.state.count
+		}
 	}
-
+	// mapState ({ //vuex数据抓取 多个参数使用 2种方法可选
+	// 	count: state => state.count 
+	// })
+	
+}
 	
 </script>
+
 <style>
 	.datas{
 		width:100%;
