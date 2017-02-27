@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<button class='datas' @click='myData'>数据请求</button>
+		<button class='datas' @click='myData'>点击此处获取数据请求</button>
 		<ul class='mylitodos' v-for='todos in count'>
 			<li>
 				{{todos.title}}
