@@ -6,7 +6,7 @@
 
 ## 预览版本
 
-点击此处预览：[DEMO](https://xuanshanbo.github.io/react-by/public/index2.html)</br>
+点击此处预览：[DEMO](https://xuanshanbo.github.io/vuecs/domest/index.html#/)</br>
 预览项目数据请求因本地无法跨域，请下载后使用服务代理
 
 
