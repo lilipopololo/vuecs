@@ -62,8 +62,8 @@ export default {
       this.land=true;
     }
   }
-
 }
+
 
 </script>
 
