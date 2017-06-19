@@ -28,8 +28,8 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-            "/api": {
-                target: "https://cnodejs.org",
+           "/api": {
+                target: "http://192.168.1.5:9090",
                 secure: false,
                 changeOrigin: true
             }
