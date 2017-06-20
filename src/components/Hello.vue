@@ -16,7 +16,7 @@
               <el-submenu index="1">
                 <template slot="title">导航一</template>
                   <el-menu-item
-                  @click='ces(i)'
+                  @click='PageProcessing(i)'
                   v-for='(todo,i) in menuitem' 
                   :index="todo.name">
                   {{todo.name}}
@@ -36,9 +36,10 @@
 </template>
 <script>
 import Vue from 'vue'
-import '../pulie/only.css'
-import api from '../pulie/api.js'
-import axios from 'axios'
+import '../public/only.css'
+import api from '../public/api.js'
+import { Loading } from 'element-ui';
+Vue.use(Loading)
 export default {
   name:'App',
   data () {
@@ -70,25 +71,26 @@ export default {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
-    ces(key){
+    LoadingP(){
+      let loadingInstance = Loading.service();
+      loadingInstance.close();
+    },
+    PageProcessing(key){
       switch (key) {
           case 0:
           this.$router.push({name:'AnnualOperatingConditions'})
           break;
           case 1:
-          axios.post('/api/todos',{})
-          .then(data=>{
-            console.log(data)
-          })
+          this.$router.push({name:'CommodityManagement'})
           break;
           case 2:
-          // statements_1
+          this.$router.push({name:'OrderManagement'})     
           break;
           case 3:
-          // statements_1
+          this.$router.push({name:'SalesAnalysis'})
           break;
           case 4:
-          // statements_1
+          this.$router.push({name:'Stock'})
           break;
         default:
           // statements_def
@@ -158,7 +160,7 @@ export default {
   .centervalues{
     width: 950px;
     overflow: hidden;
-    height: 700px            ;
+    height: 700px;
     margin-left: 250px;
   }
 </style>

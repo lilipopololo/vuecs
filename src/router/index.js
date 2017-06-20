@@ -2,6 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import App from '../components/Hello'
 import AnnualOperatingConditions from '../components/ReportForm/AnnualOperatingConditions'
+import CommodityManagement from '../components/CommodityManagement/CommodityManagement'
+import OrderManagement from '../components/OrderManagement/OrderManagement'
+import SalesAnalysis from '../components/SalesAnalysis/SalesAnalysis'
+import Stock from '../components/Stock/Stock'
 import{
   Row,
   Col,
@@ -58,23 +62,28 @@ export default new Router({
           path:'/AnnualOperatingConditions',
           name:'AnnualOperatingConditions',
           component:AnnualOperatingConditions
+        },
+        {
+          path:'/CommodityManagement',
+          name:'CommodityManagement',
+          component:CommodityManagement
+        },
+        {
+          path:'/OrderManagement',
+          name:'OrderManagement',
+          component:OrderManagement
+        },
+        {
+          path:'/SalesAnalysis',
+          name:'SalesAnalysis',
+          component:SalesAnalysis
+        },
+        {
+          path:'/Stock',
+          name:'Stock',
+          component:Stock
         }
       ]
-    },
-    // {
-    // 	path:'/myapp',
-    // 	name:'Myapp',
-    // 	component:Myapp,
-    //   children:[
-    //     {
-    //       path:'/myapp/prosto',  //嵌套
-    //       component:UserMrofile
-    //     }
-    //   ]
-    // },
-    // {
-    //   path:'/Inadd',
-    //   component:Inadd
-    // }
+    }
   ]
 })
